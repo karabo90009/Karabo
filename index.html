@@ -1,0 +1,1134 @@
+Here is the complete, copy-paste-ready HTML file for your In-Service website:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In-Service — Digital & Administrative Support for Small Businesses</title>
+<meta name="description" content="In-Service helps small businesses build their online presence, manage social media and stay organised with practical administrative support.">
+<meta name="theme-color" content="#17212B">
+<meta property="og:title" content="In-Service — Digital &amp; Administrative Support for Small Businesses">
+<meta property="og:description" content="You run the business. We handle the details. Websites, social media and business admin for South African small businesses.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2317212B'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' fill='%232F80ED'/%3E%3C/svg%3E">
+<!-- Typography: Fraunces (display serif) + Inter (sans) via Fontsource CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces@5/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces@5/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces@5/400-italic.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5/600.css">
+<style>
+/* ============================================================
+IN-SERVICE — Design system
+Palette: Navy #17212B · Off-white #F7F5F0 · Soft blue #EAF2FF
+Electric blue #2F80ED · White #FFFFFF
+============================================================ */
+:root{
+--navy:#17212B;
+--off:#F7F5F0;
+--soft:#EAF2FF;
+--blue:#2F80ED;
+--white:#FFFFFF;
+--line:rgba(23,33,43,.14);
+--line-soft:rgba(23,33,43,.08);
+--line-light:rgba(247,245,240,.22);
+--muted:rgba(23,33,43,.66);
+--muted-light:rgba(247,245,240,.72);
+--serif:'Fraunces',Georgia,'Times New Roman',serif;
+--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--ease:cubic-bezier(.22,.61,.24,1);
+--header-h:76px;
+}
+*,::before,::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:var(--sans);
+background:var(--off);
+color:var(--navy);
+line-height:1.65;
+font-size:16px;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+ul{list-style:none}
+button{font-family:inherit}
+::selection{background:var(--blue);color:var(--white)}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+.section{padding:96px 0;scroll-margin-top:calc(var(--header-h) + 12px)}
+@media(max-width:720px){.section{padding:72px 0}}
+/* ---------- Skip link ---------- */
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:var(--off);padding:12px 20px;z-index:300}
+.skip:focus{left:12px;top:12px}
+/* ---------- Type helpers ---------- */
+.eyebrow{
+display:inline-flex;align-items:center;gap:12px;
+font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+font-weight:600;color:var(--muted);
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--blue)}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:22px}
+.sec-num{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--blue)}
+.sec-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted);padding-bottom:4px;border-bottom:1px solid var(--line)}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,4.4vw,3.05rem);max-width:26ch}
+h2 em{font-style:italic;color:var(--blue)}
+.lede{color:var(--muted);max-width:56ch;margin-top:18px;font-size:clamp(.98rem,1.4vw,1.08rem)}
+/* ---------- Buttons ---------- */
+.btn{
+display:inline-flex;align-items:center;justify-content:center;gap:10px;
+padding:15px 28px;border:1px solid var(--navy);border-radius:2px;
+background:var(--navy);color:var(--off);
+font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+text-decoration:none;cursor:pointer;
+transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.btn .arr{transition:transform .3s var(--ease);display:inline-block}
+.btn:hover,.btn:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--white);transform:translateY(-2px);box-shadow:0 10px 26px rgba(47,128,237,.24)}
+.btn:hover .arr,.btn:focus-visible .arr{transform:translateX(5px)}
+.btn-ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--navy);border-color:var(--navy);color:var(--off);box-shadow:none}
+.btn-light{background:var(--off);border-color:var(--off);color:var(--navy)}
+.btn-light:hover,.btn-light:focus-visible{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.btn-sm{padding:11px 20px;font-size:.7rem}
+/* ---------- Header ---------- */
+.site-header{
+position:fixed;inset:0 0 auto 0;z-index:120;
+padding:22px 0;
+transition:padding .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease);
+}
+.site-header.scrolled{
+padding:12px 0;
+background:rgba(247,245,240,.94);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+box-shadow:0 1px 0 var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{
+font-family:var(--serif);font-weight:600;font-size:1.28rem;letter-spacing:.04em;
+text-decoration:none;color:var(--navy);display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap;
+}
+.brand .dot{width:8px;height:8px;background:var(--blue);display:inline-block;border-radius:1px;transform:translateY(-1px)}
+.nav-links{display:none;align-items:center;gap:30px}
+.nav-links a{
+font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+color:var(--muted);text-decoration:none;position:relative;padding:6px 0;
+}
+.nav-links a::after{
+content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--blue);
+transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--navy)}
+.header-cta{display:none}
+@media(min-width:640px){.header-cta{display:inline-flex}}
+@media(min-width:1000px){.nav-links{display:flex}}
+.burger{
+display:inline-flex;flex-direction:column;justify-content:center;gap:6px;
+width:46px;height:46px;padding:0 12px;background:transparent;border:1px solid var(--line);border-radius:2px;
+cursor:pointer;transition:border-color .3s,background .3s;
+}
+.burger:hover{border-color:var(--navy)}
+.burger span{display:block;height:1.6px;background:var(--navy);transition:transform .4s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(3.8px) rotate(45deg)}
+.burger.open span:nth-child(2){transform:translateY(-3.8px) rotate(-45deg)}
+@media(min-width:1000px){.burger{display:none}}
+/* ---------- Mobile menu ---------- */
+.menu-overlay{
+position:fixed;inset:0;z-index:110;background:var(--navy);color:var(--off);
+display:flex;flex-direction:column;justify-content:center;
+padding:96px 8% 56px;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:opacity .4s var(--ease), visibility .4s var(--ease);
+overflow-y:auto;
+}
+.menu-overlay.open{
+opacity:1;
+visibility:visible;
+pointer-events:auto;
+}
+.menu-overlay nav{display:flex;flex-direction:column;gap:6px}
+.menu-overlay nav a{
+font-family:var(--serif);font-size:clamp(1.7rem,7vw,2.6rem);text-decoration:none;color:var(--off);
+padding:8px 0;border-bottom:1px solid var(--line-light);
+opacity:0;transform:translateY(22px);
+transition:opacity .4s var(--ease),transform .4s var(--ease),color .3s;
+display:flex;align-items:baseline;gap:14px;
+}
+.menu-overlay nav a small{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;color:var(--blue)}
+.menu-overlay nav a:hover{color:var(--blue)}
+.menu-overlay.open nav a{opacity:1;transform:none}
+.menu-overlay.open nav a:nth-child(1){transition-delay:.08s}
+.menu-overlay.open nav a:nth-child(2){transition-delay:.12s}
+.menu-overlay.open nav a:nth-child(3){transition-delay:.16s}
+.menu-overlay.open nav a:nth-child(4){transition-delay:.20s}
+.menu-overlay.open nav a:nth-child(5){transition-delay:.24s}
+.menu-overlay.open nav a:nth-child(6){transition-delay:.28s}
+.menu-foot{margin-top:36px;display:flex;flex-direction:column;gap:14px;opacity:0;transition:opacity .4s .32s}
+.menu-overlay.open .menu-foot{opacity:1}
+.menu-foot .tag{font-family:var(--serif);font-style:italic;color:var(--muted-light);font-size:1rem}
+.menu-foot .btn{align-self:flex-start}
+/* ---------- Hero ---------- */
+.hero{padding:calc(var(--header-h) + 68px) 0 84px;position:relative;overflow:hidden}
+.hero::before{
+content:"";position:absolute;top:-140px;right:-160px;width:520px;height:520px;border-radius:50%;
+background:radial-gradient(circle,rgba(47,128,237,.10),rgba(47,128,237,0) 68%);pointer-events:none;
+}
+.hero-grid{display:grid;gap:56px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.04fr .96fr;gap:64px}}
+.hero h1{font-size:clamp(2.35rem,6vw,4.35rem);margin:22px 0 0;max-width:15ch}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero .lede{margin-top:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-line{
+margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500;
+}
+.hero-line b{color:var(--blue);font-weight:600;padding:0 6px}
+.hero-media{position:relative}
+.hero-media::before{
+content:"";position:absolute;inset:0;transform:translate(18px,18px);
+background:var(--soft);border:1px solid rgba(47,128,237,.18);border-radius:4px;z-index:0;
+}
+.hero-media img{position:relative;z-index:1;border-radius:4px;width:100%;height:100%;object-fit:cover;box-shadow:0 24px 60px rgba(23,33,43,.16)}
+.hero-chip{
+position:absolute;z-index:2;left:-10px;bottom:26px;
+background:var(--white);border:1px solid var(--line);border-radius:3px;
+padding:14px 18px;box-shadow:0 14px 34px rgba(23,33,43,.12);max-width:250px;
+}
+.hero-chip strong{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+.hero-chip span{font-size:.82rem;color:var(--muted);line-height:1.45;display:block}
+@media(max-width:520px){.hero-chip{left:0;bottom:14px;padding:11px 14px;max-width:210px}}
+/* ---------- Reveal animation ---------- */
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .75s var(--ease),transform .75s var(--ease);transition-delay:var(--d,0s)}
+[data-reveal].revealed{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+[data-reveal]{opacity:1;transform:none;transition:none}
+*{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+/* ---------- Section 01 · Services ---------- */
+.svc-section{background:var(--white);border-block:1px solid var(--line-soft)}
+.svc-grid{display:grid;gap:24px;margin-top:56px}
+@media(min-width:960px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc-card{
+border:1px solid var(--line);border-radius:3px;background:var(--white);
+padding:38px 32px 30px;position:relative;overflow:hidden;
+transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+display:flex;flex-direction:column;
+}
+.svc-card::before{
+content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--blue);
+transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);
+}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(23,33,43,.10);border-color:rgba(47,128,237,.35)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-num{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--blue);display:block;margin-bottom:18px}
+.svc-card h3{font-size:1.42rem;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.svc-quote{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--muted);margin:14px 0 24px;line-height:1.55}
+.svc-list{margin-top:auto;border-top:1px solid var(--line)}
+.svc-list li{
+display:flex;gap:12px;align-items:baseline;padding:10px 2px;
+border-bottom:1px solid var(--line-soft);font-size:.92rem;color:var(--navy);
+}
+.svc-list li::before{content:"";width:6px;height:6px;background:var(--blue);border-radius:1px;flex:none;transform:translateY(-1px)}
+.svc-list li:last-child{border-bottom:none}
+/* ---------- Section 02 · Packages ---------- */
+.pkg-grid{display:grid;gap:26px;margin-top:56px;align-items:stretch}
+@media(min-width:960px){.pkg-grid{grid-template-columns:repeat(3,1fr)}}
+.pkg{
+border:1px solid var(--line);border-radius:3px;background:var(--white);
+padding:42px 34px 34px;display:flex;flex-direction:column;position:relative;
+transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+}
+.pkg:hover{transform:translateY(-6px);box-shadow:0 24px 52px rgba(23,33,43,.10)}
+.pkg-name{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.pkg-price{font-family:var(--serif);font-size:clamp(2.3rem,3.4vw,2.85rem);margin-top:14px;line-height:1}
+.pkg-per{display:inline-block;margin-top:10px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue);background:var(--soft);border:1px solid rgba(47,128,237,.22);padding:5px 10px;border-radius:2px;width:max-content}
+.pkg-desc{margin:18px 0 24px;color:var(--muted);font-size:.95rem}
+.pkg-list{border-top:1px solid var(--line);margin-bottom:30px}
+.pkg-list li{display:flex;gap:12px;align-items:baseline;padding:10px 2px;border-bottom:1px solid var(--line-soft);font-size:.92rem}
+.pkg-list li::before{content:"";width:6px;height:6px;background:var(--blue);border-radius:1px;flex:none;transform:translateY(-1px)}
+.pkg-list li.lead{font-weight:600}
+.pkg .btn{margin-top:auto;justify-content:center}
+.pkg-feat{background:var(--navy);border-color:var(--navy);color:var(--off)}
+.pkg-feat .pkg-name{color:var(--muted-light)}
+.pkg-feat .pkg-desc{color:var(--muted-light)}
+.pkg-feat .pkg-list{border-color:var(--line-light)}
+.pkg-feat .pkg-list li{border-color:var(--line-light)}
+.pkg-feat .pkg-list li::before{background:var(--blue)}
+.pkg-feat .pkg-per{background:rgba(47,128,237,.16);border-color:rgba(47,128,237,.5);color:#BBD4FB}
+.pkg-feat:hover{box-shadow:0 26px 60px rgba(23,33,43,.28)}
+.pkg-badge{
+position:absolute;top:-13px;left:34px;background:var(--blue);color:var(--white);
+font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+padding:7px 14px;border-radius:2px;
+}
+.pkg-note{
+margin-top:30px;border:1px dashed var(--line);border-radius:3px;background:var(--white);
+padding:20px 24px;font-size:.88rem;color:var(--muted);
+}
+.pkg-note strong{color:var(--navy);font-weight:600}
+.pkg-note ul{display:inline}
+.pkg-note li{display:inline}
+.pkg-note li + li::before{content:" · ";color:var(--blue);font-weight:600}
+/* Add-ons */
+.addons{margin-top:64px}
+.addons h3{font-size:clamp(1.35rem,2.4vw,1.7rem);margin-bottom:6px}
+.addons .sub{color:var(--muted);font-size:.92rem;margin-bottom:26px}
+.addon-grid{display:grid;gap:0 44px;grid-template-columns:1fr}
+@media(min-width:720px){.addon-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.addon-grid{grid-template-columns:repeat(3,1fr)}}
+.addon{
+display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+padding:13px 2px;border-bottom:1px solid var(--line);font-size:.9rem;
+transition:color .3s,padding-left .3s var(--ease);
+}
+.addon:hover{color:var(--blue);padding-left:6px}
+.addon .price{font-weight:600;color:var(--blue);white-space:nowrap;font-size:.86rem}
+/* ---------- Section 03 · Our Work (dark) ---------- */
+.work-section{background:var(--navy);color:var(--off)}
+.work-section .sec-label{color:var(--muted-light);border-color:var(--line-light)}
+.work-section h2{color:var(--off)}
+.work-section h2 em{color:#8FB6F5}
+.work-section .lede{color:var(--muted-light)}
+.work-head{display:grid;gap:26px;margin-top:56px;padding-bottom:34px;border-bottom:1px solid var(--line-light)}
+@media(min-width:900px){.work-head{grid-template-columns:1.1fr .9fr;align-items:end}}
+.work-chip{
+display:inline-block;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+border:1px solid rgba(47,128,237,.55);color:#BBD4FB;background:rgba(47,128,237,.14);
+padding:7px 13px;border-radius:2px;margin-bottom:16px;
+}
+.work-title{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+.work-desc{color:var(--muted-light);font-size:.98rem;font-family:var(--serif);font-style:italic;line-height:1.65}
+.work-grid{display:grid;gap:26px;margin-top:40px;grid-template-columns:repeat(12,1fr)}
+.work-item{grid-column:span 12;position:relative}
+@media(min-width:900px){
+.work-item.wide{grid-column:span 12}
+.work-item.half{grid-column:span 6}
+}
+.work-item figure{position:relative;overflow:hidden;border-radius:4px;border:1px solid var(--line-light);background:#0F1720}
+.work-item img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;transition:transform .9s var(--ease)}
+.work-item.half img{aspect-ratio:4/3}
+.work-item figure:hover img{transform:scale(1.035)}
+.ph-badge{
+position:absolute;top:12px;left:12px;z-index:2;
+background:rgba(23,33,43,.82);color:var(--off);border:1px solid var(--line-light);
+font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+padding:6px 10px;border-radius:2px;backdrop-filter:blur(4px);
+}
+.work-cap{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:14px 2px 0;border-top:1px solid var(--line-light);margin-top:14px}
+.work-cap strong{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.work-cap span{font-size:.72rem;color:var(--muted-light);font-style:italic;text-align:right}
+.work-honest{margin-top:44px;font-size:.82rem;color:var(--muted-light);border-left:2px solid var(--blue);padding-left:16px;max-width:64ch}
+/* ---------- Section 04 · Process ---------- */
+.process-section{background:var(--soft)}
+.steps{display:grid;gap:34px;margin-top:60px;grid-template-columns:1fr}
+@media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.steps{grid-template-columns:repeat(5,1fr);gap:26px}}
+.step{position:relative;padding-top:26px;border-top:1px solid rgba(23,33,43,.22)}
+.step::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--blue);border-radius:50%}
+@media(min-width:1020px){
+.step:not(:last-child)::after{content:"";position:absolute;top:-1px;left:8px;width:calc(100% - 8px);height:1px;background:repeating-linear-gradient(90deg,rgba(23,33,43,.28) 0 4px,transparent 4px 9px)}
+}
+.step-num{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--blue);display:block}
+.step h3{font-size:1.02rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:10px 0 10px}
+.step p{font-size:.9rem;color:var(--muted)}
+/* ---------- Section 05 · Who we help ---------- */
+.who-grid{display:grid;gap:16px;margin-top:56px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.who-grid{grid-template-columns:repeat(4,1fr)}}
+.who-tile{
+border:1px solid var(--line);border-radius:3px;background:var(--white);
+padding:26px 22px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;
+transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.who-tile:hover{transform:translateY(-5px);background:var(--soft);border-color:rgba(47,128,237,.4);box-shadow:0 14px 34px rgba(23,33,43,.08)}
+.who-tile svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.who-tile strong{font-family:var(--serif);font-weight:500;font-size:1.06rem;line-height:1.3}
+/* ---------- Section 06 · Why ---------- */
+.why-grid{display:grid;gap:22px;margin-top:56px;grid-template-columns:1fr}
+@media(min-width:720px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+.why-card{
+background:var(--white);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:3px;
+padding:32px 26px;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(23,33,43,.09)}
+.why-card h3{font-size:1.28rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.why-card p{font-size:.92rem;color:var(--muted)}
+/* ---------- Contact ---------- */
+.contact-section{background:var(--white);border-top:1px solid var(--line-soft)}
+.contact-grid{display:grid;gap:44px;margin-top:56px}
+@media(min-width:960px){.contact-grid{grid-template-columns:.9fr 1.1fr;gap:56px}}
+.wa-card{
+background:var(--navy);color:var(--off);border-radius:4px;padding:34px 30px;
+display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;
+}
+.wa-card::after{content:"";position:absolute;right:-60px;bottom:-60px;width:190px;height:190px;border-radius:50%;background:rgba(47,128,237,.16);pointer-events:none;}
+.wa-card h3{font-size:1.4rem;color:var(--off)}
+.wa-card p{font-size:.92rem;color:var(--muted-light)}
+.wa-card .btn{align-self:flex-start;position:relative;z-index:1}
+.wa-note{font-size:.8rem;color:var(--muted-light);position:relative;z-index:1;letter-spacing:.04em}
+.wa-note strong{color:var(--off);font-weight:600}
+.contact-alt{margin-top:22px;font-size:.88rem;color:var(--muted)}
+.contact-alt a{color:var(--blue);font-weight:600;text-decoration:none;word-break:break-all}
+.contact-alt a:hover{text-decoration:underline}
+/* Email card (contact area — alternative to WhatsApp) */
+.email-card{
+margin-top:22px;background:var(--off);border:1px solid var(--line);border-radius:4px;
+padding:28px 30px;display:flex;flex-direction:column;gap:10px;
+}
+.email-card h3{font-size:1.25rem}
+.email-card p{font-size:.9rem;color:var(--muted)}
+.email-card a.mail{font-weight:600;color:var(--blue);text-decoration:none;word-break:break-all}
+.email-card a.mail:hover{text-decoration:underline}
+.email-card .btn{align-self:flex-start;margin-top:8px}
+.form-card{border:1px solid var(--line);border-radius:4px;background:var(--off);padding:38px 32px}
+@media(max-width:520px){.form-card{padding:28px 20px}}
+.form-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}.form-grid .full{grid-column:1/-1}}
+.field label{display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:8px}
+.field input,.field select,.field textarea{
+width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:2px;
+background:var(--white);color:var(--navy);font-family:var(--sans);font-size:.95rem;
+transition:border-color .3s,box-shadow .3s;
+appearance:none;-webkit-appearance:none;
+}
+.field select{
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2317212B' stroke-width='1.5'/%3E%3C/svg%3E");
+background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,128,237,.14)}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.form-status{
+display:none;margin-top:20px;padding:14px 16px;border:1px dashed rgba(47,128,237,.5);
+background:var(--soft);border-radius:3px;font-size:.88rem;color:var(--navy);
+word-break:break-word;
+}
+.form-status a{color:var(--blue);font-weight:600}
+.form-status.show{display:block;animation:fadeUp .5s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.form-demo-note{margin-top:16px;font-size:.76rem;color:var(--muted);font-style:italic}
+.form-demo-note a{color:var(--blue);font-weight:600}
+/* ---------- Footer ---------- */
+.site-footer{background:var(--navy);color:var(--off);padding:72px 0 0}
+.footer-grid{display:grid;gap:44px;padding-bottom:56px}
+@media(min-width:820px){.footer-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.footer-brand .brand{color:var(--off);font-size:1.5rem}
+.footer-brand p{color:var(--muted-light);font-size:.92rem;margin-top:14px;max-width:34ch}
+.footer-brand .tag{font-family:var(--serif);font-style:italic;color:var(--off);margin-top:14px;font-size:1.02rem}
+.footer-col h4{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-light);font-weight:600;margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:11px}
+.footer-col a{color:var(--off);text-decoration:none;font-size:.92rem;transition:color .3s;word-break:break-word}
+.footer-col a:hover{color:#8FB6F5}
+.footer-bar{border-top:1px solid var(--line-light);padding:22px 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.footer-bar p{font-size:.78rem;color:var(--muted-light)}
+.footer-bar .mini{letter-spacing:.18em;text-transform:uppercase;font-size:.66rem}
+.footer-bar .mini b{color:var(--blue);font-weight:600;padding:0 5px}
+/* Floating WhatsApp pill (mobile-first accessibility) */
+.wa-float{
+position:fixed;right:18px;bottom:18px;z-index:100;
+display:inline-flex;align-items:center;gap:10px;
+background:var(--navy);color:var(--off);border:1px solid var(--line-light);border-radius:999px;
+padding:13px 20px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+text-decoration:none;box-shadow:0 14px 34px rgba(23,33,43,.28);
+transition:background .3s,transform .3s var(--ease);
+}
+.wa-float:hover{background:var(--blue);transform:translateY(-3px)}
+.wa-float svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none}.menu-overlay{display:none!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header" id="siteHeader">
+<div class="wrap nav-inner">
+<a class="brand" href="#home" aria-label="In-Service — home">IN-SERVICE<span class="dot" aria-hidden="true"></span></a>
+<nav class="nav-links" aria-label="Primary">
+<a href="#home" data-nav="home" class="active">Home</a>
+<a href="#services" data-nav="services">Services</a>
+<a href="#packages" data-nav="packages">Packages</a>
+<a href="#work" data-nav="work">Our Work</a>
+<a href="#process" data-nav="process">How It Works</a>
+<a href="#contact" data-nav="contact">Contact</a>
+</nav>
+<a class="btn btn-sm header-cta"
+href="https://wa.me/27614379222?text=Hello%20In-Service%2C%20I%20would%20like%20to%20get%20started%20with%20digital%20%26%20admin%20support%20for%20my%20small%20business"
+target="_blank" rel="noopener noreferrer">Get Started</a>
+<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+<span></span><span></span>
+</button>
+</div>
+</header>
+<!-- ══════════════ MOBILE MENU ══════════════ -->
+<div class="menu-overlay" id="mobileMenu" aria-hidden="true">
+<nav aria-label="Mobile">
+<a href="#home"><small>01</small>Home</a>
+<a href="#services"><small>02</small>Services</a>
+<a href="#packages"><small>03</small>Packages</a>
+<a href="#work"><small>04</small>Our Work</a>
+<a href="#process"><small>05</small>How It Works</a>
+<a href="#contact"><small>06</small>Contact</a>
+</nav>
+<div class="menu-foot">
+<p class="tag">"You run the business. We handle the details."</p>
+<a class="btn btn-light"
+href="https://wa.me/27614379222?text=Hello%20In-Service%2C%20I%20would%20like%20to%20get%20started%20with%20digital%20%26%20admin%20support%20for%20my%20small%20business"
+target="_blank" rel="noopener noreferrer">Get Started <span class="arr">→</span></a>
+<a class="btn btn-ghost" style="border-color:var(--line-light);color:var(--off)"
+href="https://wa.me/27614379222?text=Hi%20In-Service%21%20I%27d%20like%20to%20ask%20about%20your%20digital%20%26%20admin%20support%20for%20my%20business"
+target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+WhatsApp Us
+</a>
+</div>
+</div>
+<main id="main">
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="home">
+<div class="wrap hero-grid">
+<div>
+<p class="eyebrow" data-reveal>In-Service · Digital & Administrative Support for Small Businesses</p>
+<h1 data-reveal style="--d:.08s">You run the business. <em>We handle the details.</em></h1>
+<p class="lede" data-reveal style="--d:.16s">We help small businesses build a professional digital presence, stay visible online and keep their everyday administration organised.</p>
+<div class="cta-row" data-reveal style="--d:.24s">
+<a class="btn"
+href="https://wa.me/27614379222?text=Hello%20In-Service%2C%20I%20would%20like%20to%20get%20started%20with%20digital%20%26%20admin%20support%20for%20my%20small%20business"
+target="_blank" rel="noopener noreferrer">Get Started <span class="arr">→</span></a>
+<a class="btn btn-ghost" href="#services">View Services</a>
+</div>
+<p class="hero-line" data-reveal style="--d:.32s">Websites<b>·</b>Social Media<b>·</b>Business Admin</p>
+</div>
+<div class="hero-media" data-reveal style="--d:.2s">
+<img src="https://image.qwenlm.ai/public_source/2a7bce44-d194-424c-ae9d-9c59ac62fab0/174f8cd3a-4e7c-44fc-bc01-ae082b8c0e1f.png"
+alt="A clean small-business workspace: a laptop displaying a modern business website, a smartphone showing a social media business profile, printed spreadsheet and organised documents on a warm off-white desk.">
+<div class="hero-chip">
+<strong>One team, three helpers</strong>
+<span>Your website, your socials and your admin — kept tidy, current and professional.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ══════════════ SECTION 01 · SERVICES ══════════════ -->
+<section class="section svc-section" id="services">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">01</span><span class="sec-label">Services</span></div>
+<h2 data-reveal>Everything your business needs <em>behind the scenes</em> and online.</h2>
+<p class="lede" data-reveal style="--d:.08s">Three focused areas of support — designed to work on their own or together, depending on what your business needs right now.</p>
+<div class="svc-grid">
+<article class="svc-card" data-reveal>
+<span class="svc-num">01</span>
+<h3>Digital Presence</h3>
+<p class="svc-quote">"Get your business online and make it easier for customers to find, contact and understand you."</p>
+<ul class="svc-list">
+<li>One-page business websites</li>
+<li>WhatsApp Business setup</li>
+<li>Facebook Business setup</li>
+<li>Instagram Business setup</li>
+<li>Google Business Profile setup</li>
+<li>Digital menus and price lists</li>
+<li>Business information organisation</li>
+<li>Website updates</li>
+</ul>
+</article>
+<article class="svc-card" data-reveal style="--d:.1s">
+<span class="svc-num">02</span>
+<h3>Social Media</h3>
+<p class="svc-quote">"Stay visible online without having to manage every platform yourself."</p>
+<ul class="svc-list">
+<li>Facebook management</li>
+<li>Instagram management</li>
+<li>Social-media content</li>
+<li>Captions</li>
+<li>Content scheduling</li>
+<li>Promotional posts</li>
+<li>WhatsApp Business updates</li>
+<li>Google Business updates</li>
+</ul>
+</article>
+<article class="svc-card" data-reveal style="--d:.2s">
+<span class="svc-num">03</span>
+<h3>Business Admin</h3>
+<p class="svc-quote">"Keep your business information, records and everyday administration organised."</p>
+<ul class="svc-list">
+<li>Invoices and quotations</li>
+<li>Customer / order records</li>
+<li>Stock spreadsheets</li>
+<li>Expense tracking</li>
+<li>Data capturing</li>
+<li>Digital document organisation</li>
+<li>Basic business reports</li>
+<li>Administrative support</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<!-- ══════════════ SECTION 02 · PACKAGES ══════════════ -->
+<section class="section" id="packages">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">02</span><span class="sec-label">Packages</span></div>
+<h2 data-reveal>Choose the support <em>your business</em> needs.</h2>
+<p class="lede" data-reveal style="--d:.08s">Clear, small-business-friendly pricing. Start once-off or monthly — and add extra help whenever you need it.</p>
+<div class="pkg-grid">
+<article class="pkg" data-reveal>
+<p class="pkg-name">Get Online</p>
+<p class="pkg-price">R750</p>
+<span class="pkg-per">Once-off</span>
+<p class="pkg-desc">For businesses starting from scratch.</p>
+<ul class="pkg-list">
+<li>One-page website</li>
+<li>WhatsApp Business setup</li>
+<li>Facebook setup</li>
+<li>Instagram setup</li>
+<li>Google Business Profile setup</li>
+<li>Digital menu or price list</li>
+</ul>
+<a class="btn btn-ghost"
+href="https://wa.me/27614379222?text=Hello%20In-Service%21%20I%E2%80%99m%20interested%20in%20the%20Get%20Online%20package%20%28R750%20once-off%29.%20Please%20send%20me%20more%20information%20about%20getting%20started"
+target="_blank" rel="noopener noreferrer">Get Started <span class="arr">→</span></a>
+</article>
+<article class="pkg" data-reveal style="--d:.1s">
+<p class="pkg-name">Stay Visible</p>
+<p class="pkg-price">R950</p>
+<span class="pkg-per">Per month</span>
+<p class="pkg-desc">For businesses that need consistent online management.</p>
+<ul class="pkg-list">
+<li>Facebook management</li>
+<li>Instagram management</li>
+<li>8 social posts per month</li>
+<li>Captions</li>
+<li>Content scheduling</li>
+<li>WhatsApp Business updates</li>
+<li>Google Business updates</li>
+<li>Basic website updates</li>
+</ul>
+<a class="btn btn-ghost"
+href="https://wa.me/27614379222?text=Hello%20In-Service%21%20I%E2%80%99m%20interested%20in%20the%20Stay%20Visible%20package%20%28R950%2Fmonth%29.%20Please%20send%20me%20more%20information%20about%20getting%20started"
+target="_blank" rel="noopener noreferrer">Get Started <span class="arr">→</span></a>
+</article>
+<article class="pkg pkg-feat" data-reveal style="--d:.2s">
+<span class="pkg-badge">Most comprehensive</span>
+<p class="pkg-name">Run Better</p>
+<p class="pkg-price">R1,500</p>
+<span class="pkg-per">Per month</span>
+<p class="pkg-desc">For businesses that want digital and administrative support.</p>
+<ul class="pkg-list">
+<li class="lead">Everything in Stay Visible, plus:</li>
+<li>Stock spreadsheet</li>
+<li>Customer / order records</li>
+<li>Invoice and quotation support</li>
+<li>Expense tracking</li>
+<li>Digital document organisation</li>
+<li>Basic monthly admin support</li>
+</ul>
+<a class="btn btn-light"
+href="https://wa.me/27614379222?text=Hello%20In-Service%21%20I%E2%80%99m%20interested%20in%20the%20Run%20Better%20package%20%28R1%2C500%2Fmonth%29.%20Please%20send%20me%20more%20information%20about%20getting%20started"
+target="_blank" rel="noopener noreferrer">Get Started <span class="arr">→</span></a>
+</article>
+</div>
+<div class="pkg-note" data-reveal>
+<strong>Please note — packages do not include:</strong>
+<ul>
+<li>Paid advertising</li>
+<li>Professional photography</li>
+<li>Video shoots</li>
+<li>Unlimited posts</li>
+<li>24/7 customer service</li>
+</ul>
+</div>
+<div class="addons" data-reveal>
+<h3>Add-ons & extras</h3>
+<p class="sub">Available once-off or alongside any package — only pay for what you need.</p>
+<div class="addon-grid">
+<div class="addon"><span>Additional social post</span><span class="price">from R75</span></div>
+<div class="addon"><span>Digital flyer / poster</span><span class="price">from R100</span></div>
+<div class="addon"><span>Menu / price-list redesign</span><span class="price">from R150</span></div>
+<div class="addon"><span>Additional website page</span><span class="price">from R150</span></div>
+<div class="addon"><span>Invoice / quotation template</span><span class="price">from R100</span></div>
+<div class="addon"><span>Stock spreadsheet setup</span><span class="price">from R200</span></div>
+<div class="addon"><span>Basic admin spreadsheet</span><span class="price">from R200</span></div>
+<div class="addon"><span>Additional admin work</span><span class="price">R150 / hour</span></div>
+<div class="addon"><span>Additional social-media platform</span><span class="price">from R250 / month</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══════════════ SECTION 03 · OUR WORK ══════════════ -->
+<section class="section work-section" id="work">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">03</span><span class="sec-label">Our Work</span></div>
+<h2 data-reveal>Real work. <em>Real businesses.</em></h2>
+<p class="lede" data-reveal style="--d:.08s">A look at the kind of practical, hands-on support we provide — built around each business, not a template.</p>
+<div class="work-head" data-reveal>
+<div>
+<span class="work-chip">Digital Presence</span>
+<h3 class="work-title">Hair-glamorous by Enhle M.</h3>
+</div>
+<p class="work-desc">"We helped establish a simple digital home for a local beauty business, bringing its services, pricing, ordering information and social platforms together in one place."</p>
+</div>
+<div class="work-grid">
+<div class="work-item wide" data-reveal>
+<figure>
+<span class="ph-badge">Portfolio image — replace with actual project screenshot</span>
+<img src="https://image.qwenlm.ai/public_source/2a7bce44-d194-424c-ae9d-9c59ac62fab0/1e9556b50-8f0b-4c67-ba93-318fdc958957.png"
+alt="Placeholder mockup of the Hair-glamorous one-page website shown on a laptop and smartphone, with service blocks, pricing rows and a WhatsApp contact button.">
+</figure>
+<div class="work-cap"><strong>Website</strong><span>One-page business website — placeholder visual</span></div>
+</div>
+<div class="work-item half" data-reveal style="--d:.1s">
+<figure>
+<span class="ph-badge">Portfolio image — replace with actual project screenshot</span>
+<img src="https://image.qwenlm.ai/public_source/2a7bce44-d194-424c-ae9d-9c59ac62fab0/18bd2859f-aae8-49ba-944e-f1a1a9fb5d43.png"
+alt="Placeholder mockup of a digital price list for a beauty business, shown printed and on a tablet with clean sections and soft blue accent lines.">
+</figure>
+<div class="work-cap"><strong>Digital Price List</strong><span>Placeholder visual</span></div>
+</div>
+<div class="work-item half" data-reveal style="--d:.2s">
+<figure>
+<span class="ph-badge">Portfolio image — replace with actual project screenshot</span>
+<img src="https://image.qwenlm.ai/public_source/2a7bce44-d194-424c-ae9d-9c59ac62fab0/1f11d59d4-ec95-418a-9fa2-72454565aa0a.png"
+alt="Placeholder mockup of a smartphone showing a social media business profile grid for a beauty salon with image placeholders.">
+</figure>
+<div class="work-cap"><strong>Social-Media Presence</strong><span>Placeholder visual</span></div>
+</div>
+</div>
+<p class="work-honest" data-reveal>Visuals above are presentation placeholders. Final project screenshots will be added with the business's permission. We never publish results, figures or quotes that a client has not approved.</p>
+</div>
+</section>
+<!-- ══════════════ SECTION 04 · HOW IT WORKS ══════════════ -->
+<section class="section process-section" id="process">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">04</span><span class="sec-label">How It Works</span></div>
+<h2 data-reveal>Getting started takes <em>five simple steps.</em></h2>
+<div class="steps">
+<div class="step" data-reveal>
+<span class="step-num">01</span>
+<h3>Connect</h3>
+<p>"Tell us about your business and what you need."</p>
+</div>
+<div class="step" data-reveal style="--d:.08s">
+<span class="step-num">02</span>
+<h3>Plan</h3>
+<p>"We identify the digital and administrative support your business needs."</p>
+</div>
+<div class="step" data-reveal style="--d:.16s">
+<span class="step-num">03</span>
+<h3>Build</h3>
+<p>"We create or organise the tools and systems your business needs."</p>
+</div>
+<div class="step" data-reveal style="--d:.24s">
+<span class="step-num">04</span>
+<h3>Launch</h3>
+<p>"Your website, social platforms and business tools go live."</p>
+</div>
+<div class="step" data-reveal style="--d:.32s">
+<span class="step-num">05</span>
+<h3>Support</h3>
+<p>"We keep things updated while you focus on your customers."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ══════════════ SECTION 05 · WHO WE HELP ══════════════ -->
+<section class="section" id="who" style="background:var(--white);border-block:1px solid var(--line-soft)">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">05</span><span class="sec-label">Who We Help</span></div>
+<h2 data-reveal>Built for businesses <em>like yours.</em></h2>
+<p class="lede" data-reveal style="--d:.08s">If you run a small operation and the details are eating your time, we're built for you.</p>
+<div class="who-grid">
+<div class="who-tile" data-reveal>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v6a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M17 3c-1.6 2.6-1.6 6.6 0 9.2V21"/></svg>
+<strong>Restaurants & Takeaways</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.06s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8.1 7.3 20 18"/><path d="M8.1 16.7 20 6"/></svg>
+<strong>Hair & Beauty</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.12s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"/><path d="M6 7v9M9.3 7v11M12.6 7v9M15.9 7v11M19 7v9"/></svg>
+<strong>Salons & Barbers</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.18s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.1 12H7.1L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+<strong>Small Retailers</strong>
+</div>
+<div class="who-tile" data-reveal>
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg>
+<strong>Home Businesses</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.06s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M9 20h6"/><path d="M12 16v4"/></svg>
+<strong>Online Businesses</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.12s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+<strong>Service Providers</strong>
+</div>
+<div class="who-tile" data-reveal style="--d:.18s">
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+<strong>Independent Professionals</strong>
+</div>
+</div>
+</div>
+</section>
+<!-- ══════════════ SECTION 06 · WHY IN-SERVICE ══════════════ -->
+<section class="section" id="why">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">06</span><span class="sec-label">Why In-Service</span></div>
+<h2 data-reveal>Small-business support without the <em>big-business price tag.</em></h2>
+<div class="why-grid">
+<article class="why-card" data-reveal>
+<h3>Practical</h3>
+<p>"We focus on things your business actually needs."</p>
+</article>
+<article class="why-card" data-reveal style="--d:.08s">
+<h3>Simple</h3>
+<p>"No unnecessary complexity or technical jargon."</p>
+</article>
+<article class="why-card" data-reveal style="--d:.16s">
+<h3>Affordable</h3>
+<p>"Services designed around small-business budgets."</p>
+</article>
+<article class="why-card" data-reveal style="--d:.24s">
+<h3>Flexible</h3>
+<p>"Start with what you need and add support as your business grows."</p>
+</article>
+</div>
+</div>
+</section>
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="section contact-section" id="contact">
+<div class="wrap">
+<div class="sec-head" data-reveal><span class="sec-num">07</span><span class="sec-label">Contact</span></div>
+<h2 data-reveal>Let's get your business <em>sorted.</em></h2>
+<p class="lede" data-reveal style="--d:.08s">Tell us about your business, what you're struggling with and what you'd like help with.</p>
+<div class="contact-grid">
+<div data-reveal>
+<div class="wa-card">
+<h3>Prefer to chat?</h3>
+<p>Send us a WhatsApp message and tell us what your business needs. Quick questions welcome — no pressure, no jargon.</p>
+<a class="btn btn-light"
+href="https://wa.me/27614379222?text=Hi%20In-Service%21%20I%27d%20like%20to%20ask%20about%20your%20digital%20%26%20admin%20support%20for%20my%20business"
+target="_blank" rel="noopener noreferrer">WhatsApp Us <span class="arr">→</span></a>
+<p class="wa-note">WhatsApp: <strong>061 437 9222</strong> · International: <strong>+27 61 437 9222</strong></p>
+</div>
+<div class="email-card">
+<h3>Email us</h3>
+<p>Prefer email as an alternative to WhatsApp? Write to us anytime and we'll get back to you.</p>
+<a class="mail" href="mailto:inservice702@gmail.com">inservice702@gmail.com</a>
+<a class="btn btn-ghost btn-sm" href="mailto:inservice702@gmail.com?subject=Enquiry%20%E2%80%94%20In-Service">Email Us <span class="arr">→</span></a>
+</div>
+<p class="contact-alt">
+Or start with a package: choose <strong>Get Online</strong>, <strong>Stay Visible</strong> or <strong>Run Better</strong> above — each one opens WhatsApp with your enquiry ready to send.
+</p>
+</div>
+<div class="form-card" data-reveal style="--d:.1s">
+<form id="enquiryForm" novalidate>
+<div class="form-grid">
+<div class="field">
+<label for="fName">Name *</label>
+<input id="fName" name="name" type="text" autocomplete="name" required placeholder="Your name">
+</div>
+<div class="field">
+<label for="fBusiness">Business name</label>
+<input id="fBusiness" name="business" type="text" autocomplete="organization" placeholder="e.g. Enhle's Kitchen">
+</div>
+<div class="field">
+<label for="fWhatsapp">WhatsApp number</label>
+<input id="fWhatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="e.g. 082 000 0000">
+</div>
+<div class="field">
+<label for="fEmail">Email</label>
+<input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+</div>
+<div class="field">
+<label for="fType">Business type</label>
+<select id="fType" name="businesstype">
+<option value="" selected>Select business type</option>
+<option>Restaurant / Takeaway</option>
+<option>Hair & Beauty</option>
+<option>Retail</option>
+<option>Service Business</option>
+<option>Online Business</option>
+<option>Other</option>
+</select>
+</div>
+<div class="field">
+<label for="fHelp">What do you need help with?</label>
+<select id="fHelp" name="helpwith">
+<option value="" selected>Select support type</option>
+<option>Website</option>
+<option>Social Media</option>
+<option>Business Admin</option>
+<option>Full Business Support</option>
+<option>Not sure yet</option>
+</select>
+</div>
+<div class="field full">
+<label for="fMessage">Message</label>
+<textarea id="fMessage" name="message" placeholder="Tell us a little about your business and what you'd like help with…"></textarea>
+</div>
+</div>
+<div class="form-actions">
+<button class="btn" type="submit">Send Enquiry <span class="arr">→</span></button>
+<button class="btn btn-ghost" type="button" id="copyBtn">Copy Enquiry Text</button>
+</div>
+<p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+<p class="form-demo-note">Submitting opens WhatsApp with your enquiry pre-filled — you review it and press send yourself. This website does not store your details. Prefer email? <a href="mailto:inservice702@gmail.com">inservice702@gmail.com</a></p>
+<noscript>
+<p class="form-demo-note" style="font-style:normal">
+This form needs JavaScript to build your WhatsApp message. Without it, please contact us directly on
+<a href="https://wa.me/27614379222" target="_blank" rel="noopener noreferrer">WhatsApp (061 437 9222)</a> or
+<a href="mailto:inservice702@gmail.com">inservice702@gmail.com</a>.
+</p>
+</noscript>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<a class="wa-float" href="https://wa.me/27614379222?text=Hi%20In-Service%21%20I%27d%20like%20to%20ask%20about%20your%20digital%20%26%20admin%20support%20for%20my%20business"
+target="_blank" rel="noopener noreferrer" aria-label="Chat with In-Service on WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+WhatsApp
+</a>
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="#home">IN-SERVICE<span class="dot" aria-hidden="true"></span></a>
+<p>Digital & Administrative Support for Small Businesses</p>
+<p class="tag">"You run the business. We handle the details."</p>
+</div>
+<div class="footer-col">
+<h4>Explore</h4>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#work">Our Work</a></li>
+<li><a href="#process">How It Works</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<ul>
+<li><a href="https://wa.me/27614379222" target="_blank" rel="noopener noreferrer">WhatsApp — 061 437 9222</a></li>
+<li><a href="mailto:inservice702@gmail.com">Email — inservice702@gmail.com</a></li>
+<li><a href="https://www.instagram.com/inservice_sa/" target="_blank" rel="noopener noreferrer">Instagram — @inservice_sa</a></li>
+<li><a href="https://www.facebook.com/inservice" target="_blank" rel="noopener noreferrer">Facebook — In-Service</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bar">
+<p>© 2026 In-Service. All rights reserved.</p>
+<p class="mini">Websites<b>·</b>Social Media<b>·</b>Business Admin</p>
+</div>
+</div>
+</footer>
+<script>
+/* ════════════════════════════════════════════════════════════
+In-Service — production script
+════════════════════════════════════════════════════════════ */
+(function() {
+'use strict';
+var WHATSAPP_NUMBER = "27614379222";
+/* ---------- Header scroll state ---------- */
+var header = document.getElementById('siteHeader');
+if (header) {
+var onScroll = function() {
+header.classList.toggle('scrolled', window.scrollY > 24);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+}
+/* ---------- Mobile menu ---------- */
+var burger = document.getElementById('burger');
+var menu = document.getElementById('mobileMenu');
+function setMenu(open) {
+if (!burger || !menu) return;
+burger.classList.toggle('open', open);
+menu.classList.toggle('open', open);
+document.body.classList.toggle('menu-open', open);
+burger.setAttribute('aria-expanded', String(open));
+burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+menu.setAttribute('aria-hidden', String(!open));
+}
+if (burger && menu) {
+burger.addEventListener('click', function(e) {
+e.stopPropagation();
+var isOpen = menu.classList.contains('open');
+setMenu(!isOpen);
+});
+menu.querySelectorAll('a').forEach(function(a) {
+a.addEventListener('click', function() {
+setMenu(false);
+});
+});
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape' && menu.classList.contains('open')) {
+setMenu(false);
+}
+});
+}
+/* ---------- Reveal on scroll ---------- */
+var revealEls = document.querySelectorAll('[data-reveal]');
+if ('IntersectionObserver' in window) {
+var ro = new IntersectionObserver(function(entries) {
+entries.forEach(function(en) {
+if (en.isIntersecting) {
+en.target.classList.add('revealed');
+ro.unobserve(en.target);
+}
+});
+}, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+revealEls.forEach(function(el) { ro.observe(el); });
+} else {
+revealEls.forEach(function(el) { el.classList.add('revealed'); });
+}
+setTimeout(function() {
+revealEls.forEach(function(el) {
+if (!el.classList.contains('revealed')) {
+el.classList.add('revealed');
+}
+});
+}, 2500);
+/* ---------- Active nav link ---------- */
+var navMap = {};
+document.querySelectorAll('.nav-links a[data-nav]').forEach(function(a) {
+navMap[a.getAttribute('data-nav')] = a;
+});
+var sectionIds = ['home', 'services', 'packages', 'work', 'process', 'contact'];
+if ('IntersectionObserver' in window) {
+var so = new IntersectionObserver(function(entries) {
+entries.forEach(function(en) {
+if (en.isIntersecting) {
+Object.keys(navMap).forEach(function(key) {
+navMap[key].classList.remove('active');
+});
+var link = navMap[en.target.id];
+if (link) link.classList.add('active');
+}
+});
+}, { rootMargin: '-45% 0px -50% 0px' });
+sectionIds.forEach(function(id) {
+var s = document.getElementById(id);
+if (s) so.observe(s);
+});
+}
+/* ---------- Enquiry form & Copy handler ---------- */
+var form = document.getElementById('enquiryForm');
+var status = document.getElementById('formStatus');
+var copyBtn = document.getElementById('copyBtn');
+function getVal(id) {
+var el = document.getElementById(id);
+return el ? el.value.trim() : '';
+}
+function collectEnquiry() {
+return {
+name: getVal('fName'),
+business: getVal('fBusiness'),
+whatsapp: getVal('fWhatsapp'),
+email: getVal('fEmail'),
+type: getVal('fType'),
+help: getVal('fHelp'),
+message: getVal('fMessage')
+};
+}
+function enquiryText(d) {
+return 'Hello In-Service,\n\n' +
+'I would like to enquire about your services.\n\n' +
+'Name: ' + (d.name || '—') + '\n' +
+'Business: ' + (d.business || '—') + '\n' +
+'WhatsApp: ' + (d.whatsapp || '—') + '\n' +
+'Email: ' + (d.email || '—') + '\n' +
+'Business type: ' + (d.type || '—') + '\n' +
+'Support needed: ' + (d.help || '—') + '\n\n' +
+'Message:\n' + (d.message || '—') + '\n\n' +
+'Thank you.';
+}
+function waLink(text) {
+return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+}
+function showStatus(html) {
+if (!status) return;
+status.innerHTML = html;
+status.classList.add('show');
+}
+function legacyCopy(t) {
+var ta = document.createElement('textarea');
+ta.value = t;
+ta.setAttribute('readonly', '');
+ta.style.position = 'fixed';
+ta.style.left = '-9999px';
+ta.style.top = '0';
+ta.style.opacity = '0';
+document.body.appendChild(ta);
+ta.select();
+ta.setSelectionRange(0, ta.value.length);
+var ok = false;
+try {
+ok = document.execCommand('copy');
+} catch(e) {
+ok = false;
+}
+document.body.removeChild(ta);
+return ok;
+}
+function copyText(t) {
+if (navigator.clipboard && window.isSecureContext) {
+return navigator.clipboard.writeText(t).then(function() {
+return true;
+}).catch(function() {
+return legacyCopy(t);
+});
+}
+return Promise.resolve(legacyCopy(t));
+}
+if (copyBtn) {
+copyBtn.addEventListener('click', function() {
+var d = collectEnquiry();
+var text = enquiryText(d);
+copyText(text).then(function(success) {
+if (success) {
+showStatus('Enquiry text copied to clipboard! You can now paste it into WhatsApp, email, or a document.');
+} else {
+showStatus('Unable to copy automatically. Please select and copy the text manually.');
+}
+});
+});
+}
+if (form) {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+var d = collectEnquiry();
+if (!d.name) {
+showStatus('Please add your name so we know who to reply to.');
+var nameEl = document.getElementById('fName');
+if (nameEl) nameEl.focus();
+return;
+}
+var link = waLink(enquiryText(d));
+showStatus('Opening WhatsApp with your enquiry pre-filled...<br>If WhatsApp does not open automatically, <a href="' + link + '" target="_blank" rel="noopener noreferrer">click here to open WhatsApp directly</a>.');
+window.location.href = link;
+});
+}
+})();
+</script>
+</body>
+</html>
+```
